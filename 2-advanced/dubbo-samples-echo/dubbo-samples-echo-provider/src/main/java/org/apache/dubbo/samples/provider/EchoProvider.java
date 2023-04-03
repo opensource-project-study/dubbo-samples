@@ -25,7 +25,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class EchoProvider {
     public static void main(String[] args) {
         // Start the registry
-        new EmbeddedZooKeeper(2181, false).start();
+//        new EmbeddedZooKeeper(2181, false).start();
 
         // run service provider
         SpringApplication.run(EchoProvider.class,args);
