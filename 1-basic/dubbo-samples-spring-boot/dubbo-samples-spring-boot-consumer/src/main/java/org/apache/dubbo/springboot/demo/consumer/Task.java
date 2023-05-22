@@ -16,11 +16,9 @@
  */
 package org.apache.dubbo.springboot.demo.consumer;
 
-import java.util.Date;
 import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.TimeUnit;
-
 import org.apache.dubbo.config.annotation.DubboReference;
+import org.apache.dubbo.springboot.demo.Demo2Service;
 import org.apache.dubbo.springboot.demo.DemoService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -29,11 +27,17 @@ import org.springframework.stereotype.Component;
 public class Task implements CommandLineRunner {
     @DubboReference
     private DemoService demoService;
+//    @DubboReference(version = "1.0.0", group = "A")
+    @DubboReference(version = "*", group = "*")
+    private Demo2Service demo2Service;
 
     @Override
     public void run(String... args) throws Exception {
         String result = demoService.sayHello("world");
         System.out.println("Receive result ======> " + result);
+
+        String result2 = demo2Service.sayHello("world");
+        System.out.println("Receive result 2 ======> " + result2);
 
         new Thread(()-> {
 //            while (true) {
