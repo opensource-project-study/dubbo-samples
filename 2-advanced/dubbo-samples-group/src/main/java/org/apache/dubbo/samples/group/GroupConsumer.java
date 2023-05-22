@@ -19,6 +19,8 @@
 
 package org.apache.dubbo.samples.group;
 
+import java.util.concurrent.CountDownLatch;
+
 import org.apache.dubbo.samples.group.api.GroupService;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -26,7 +28,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class GroupConsumer {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring/group-consumer.xml");
         context.start();
 
@@ -38,5 +40,7 @@ public class GroupConsumer {
 
         String resultGroupB = groupBService.sayHello("world");
         System.out.println(resultGroupB);
+
+        new CountDownLatch(1).await();
     }
 }

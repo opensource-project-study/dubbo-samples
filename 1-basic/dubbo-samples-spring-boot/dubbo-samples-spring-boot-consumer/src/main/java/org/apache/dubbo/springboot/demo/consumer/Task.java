@@ -17,6 +17,8 @@
 package org.apache.dubbo.springboot.demo.consumer;
 
 import java.util.Date;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.dubbo.config.annotation.DubboReference;
 import org.apache.dubbo.springboot.demo.DemoService;
@@ -34,14 +36,20 @@ public class Task implements CommandLineRunner {
         System.out.println("Receive result ======> " + result);
 
         new Thread(()-> {
-            while (true) {
-                try {
-                    Thread.sleep(1000);
-                    System.out.println(new Date() + " Receive result ======> " + demoService.sayHello("world"));
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                    Thread.currentThread().interrupt();
-                }
+//            while (true) {
+//                try {
+//                    Thread.sleep(1000);
+//                    System.out.println(new Date() + " Receive result ======> " + demoService.sayHello("world"));
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                    Thread.currentThread().interrupt();
+//                }
+//            }
+
+            try {
+                new CountDownLatch(1).await();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
         }).start();
     }
