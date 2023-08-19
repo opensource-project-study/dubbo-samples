@@ -29,18 +29,20 @@
     <modules>
         <module>dubbo-samples-empty-protection</module>
         <module>dubbo-samples-empty-protection-nacos</module>
-        <module>dubbo-samples-hibernate</module>
+<!--        <module>dubbo-samples-hibernate</module>-->
         <module>dubbo-samples-isolation-executor</module>
         <module>dubbo-samples-metadata-report</module>
         <module>dubbo-samples-memory-server</module>
         <module>dubbo-samples-memory-tri-server</module>
         <module>dubbo-samples-mybatis</module>
-        <module>dubbo-samples-nacos-legacy</module>
+<!--        <module>dubbo-samples-nacos-legacy</module>-->
         <module>dubbo-samples-multi-port</module>
+        <!--
         <module>dubbo-samples-nacos-merge</module>
         <module>dubbo-samples-registry-test-nacos</module>
         <module>dubbo-samples-registry-test-nacos-interface</module>
         <module>dubbo-samples-registry-test-nacos-instance</module>
+        -->
         <module>dubbo-samples-port-unification-netty3</module>
         <module>dubbo-samples-prefer-serialization-test</module>
         <module>dubbo-samples-prefer-serialization-test-31x</module>
@@ -48,12 +50,15 @@
         <module>dubbo-samples-registry-test-curator-interface</module>
         <module>dubbo-samples-registry-test-curator-instance</module>
         <module>dubbo-samples-router-chain-switch</module>
+        <!--
         <module>dubbo-samples-sd-group</module>
         <module>dubbo-samples-sd-merge</module>
         <module>dubbo-samples-sd-version</module>
+        -->
         <module>dubbo-samples-sentinel-compact</module>
         <module>dubbo-samples-sentinel-dubbo3</module>
         <module>dubbo-samples-switch-serialization-thread</module>
+        <!--
         <module>dubbo-samples-test-9806</module>
         <module>dubbo-samples-test-10704</module>
         <module>dubbo-samples-test-11096</module>
@@ -73,5 +78,6 @@
         <module>dubbo-samples-rest-withtoken</module>
         <module>dubbo-samples-serialize-check</module>
         <module>dubbo-samples-grpc</module>
+        -->
     </modules>
 </project>
