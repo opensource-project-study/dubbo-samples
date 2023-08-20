@@ -28,10 +28,12 @@ public class AppendedFilter implements Filter {
     @Override
     public Result invoke(Invoker<?> invoker, Invocation invocation) throws RpcException {
         Result result= invoker.invoke(invocation);
-        // Obtain the returned value
-        Result appResponse = ((AsyncRpcResult) result).getAppResponse();
-        // Appended value
-        appResponse.setValue(appResponse.getValue()+"'s customized AppendedFilter");
+
+        // consumer端反序列化时报数组越界异常，应该不能直接修改Result值
+//        // Obtain the returned value
+//        Result appResponse = ((AsyncRpcResult) result).getAppResponse();
+////        // Appended value
+//        appResponse.setValue(appResponse.getValue()+"'s customized AppendedFilter");
         return result;
     }
 }
